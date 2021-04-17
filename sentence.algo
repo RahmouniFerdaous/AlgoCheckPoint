@@ -1,0 +1,38 @@
+ALGORITHM  sentence
+VAR
+    STRING sentence;
+    nbrCharacter,nbrWord,nbrVowel:INTEGER :=0;
+    i:INTEGER :=0;
+    
+BEGIN
+        Write('Please write a sentence which ends with .') //message in the screen
+        READ(sentence);
+    
+    WHILE (sentence[i] <> '.') DO  // <> different
+       nbrCharacter := nbrCharacter+1;
+       IF (sentence[i] === ' ') THEN  //test if the char is space ' '
+        nbrWord := nbrWord+1;
+       END_IF
+
+    SWITCH (sentence[i]) DO    
+        case 'A' : nbrVowel := nbrVowel+1; Break;
+        case 'a' : nbrVowel := nbrVowel+1; Break;
+        case 'E' : nbrVowel := nbrVowel+1; Break;
+        case 'e' : nbrVowel := nbrVowel+1; Break;
+        case 'O' : nbrVowel := nbrVowel+1; Break;
+        case 'o' : nbrVowel := nbrVowel+1; Break;
+        case 'U' : nbrVowel := nbrVowel+1; Break;
+        case 'u' : nbrVowel := nbrVowel+1; Break;
+        default : nbrVowel :=0;
+    END_SWITCH
+
+         i:=i+1;   //incrementation of the indice
+        
+    END_WHILE
+
+    nbrCharacter := nbrCharacter + 1; // OR nbrCharacter := i ; 
+ 
+    Write ('your sentence: '+sentence+ ' has '+nbrCharacter+ ' including . and has '+nbrWord+
+        ' with ' +nbrVowel+ ' vowels');
+    
+END
